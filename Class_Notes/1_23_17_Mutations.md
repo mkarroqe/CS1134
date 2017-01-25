@@ -2,6 +2,7 @@
 #### Lecture Date: 1.23.17
 ---
 [variable_map]: images/1_23_17_img1.png "Variable Map"
+[lists_map1]: images/1_23_17_img2.png "Lists Map"
 
 ## Declaring Variables:
 When you declare a variable, for example, ```x = 4```, an int object is created of value 4.  The variable ```x``` then points to that int object.
@@ -19,25 +20,37 @@ The above list lst will not be mutated because elem is a copy of the actual elem
 
 To mutate the element in the list, you must use the indicies:
     
-    ```python
-    for idx in range(3):
-        lst[idx] = lst[idx] + 10
-    ```
+```python
+for idx in range(3):
+   lst[idx] = lst[idx] + 10
+```
 
-This is another example:
+##### Example:
+First, we're creating three lists, `lst1`, `lst2`, and `lst3`, respectively.
+```python
+lst1 = [1, 2, 3] # lst1 is pointing to its own new object
+lst2 = lst1 # lst2 is pointing to the same object as lst1; same memory address
+lst3 = [1, 2, 3] # lst3 is pointing to its own new object
+```
+You can see in the diagram below how they are stored and referenced in memory:
 
-    lst1 = [1, 2, 3] # lst1 is pointing to its own new object
-    lst2 = lst1 # lst2 is pointing to the same object as lst1; same memory address
-    lst3 = [1, 2, 3] # lst3 is pointing to its own new object
+![alt text][lists_map1]
 
-    lst1.append(4) # lst2 is also affected when this happens
-    lst2.append(5) # lst1 is also affected when this happens
-    lst3.append(6) # is independent
-    '''
-    print("lst1:", lst1)
-    print("lst2:", lst2)
-    print("lst3:", lst3)
-    '''
+Then, we append to the lists to demonstrate how they are affected in memory.
+```python
+lst1.append(4) # lst2 is also affected when this happens
+lst2.append(5) # lst1 is also affected when this happens
+lst3.append(6) # is independent
+```
+Printing the lists outputs the following:
+
+Code | Output
+--- | ---
+`print("lst1:", lst1)` | `lst1: [1, 2, 3, 4, 5]`
+`print("lst2:", lst2)` | `lst2: [1, 2, 3, 4, 5]`
+`print("lst3:", lst3)` | `lst3: [1, 2, 3, 6]`
+
+
 # Strings / Mutating Strings: IMMUTABLE DATA STRUCTURES
     s1 = "abc" # points to new string object
     s2 = s1 # points to the same memory address/string object as s1
