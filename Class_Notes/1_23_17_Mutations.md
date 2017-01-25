@@ -1,19 +1,20 @@
 # Python Review: Mutations 
 #### Lecture Date: 1.23.17
 ---
+[variable_map]: images/1_23_17_img1.png "Variable Map"
 
 ## Declaring Variables:
 When you declare a variable, for example, ```x = 4```, an int object is created of value 4.  The variable ```x``` then points to that int object.
 If you reassign the value of ```x``` to ```x = 3.5```, a float, a new float object is created and the variable ```x``` will then point to that instead.
+
 ![alt text][variable_map]
 
-# Lists / Mutating Lists: MUTABLE DATA STRUCTURES
-   
-   ```python
-   lst = [1, 2, 3]
-   for elem in lst:
-        elem += 10
-    ```
+# Lists / Mutating Lists: MUTABLE DATA STRUCTURES   
+```python
+lst = [1, 2, 3]
+for elem in lst:
+     elem += 10
+ ```
 The above list lst will not be mutated because elem is a copy of the actual element in the list.  Lists are mutable, but here, only the copy is being mutated.  New values are being changed.
 
 To mutate the element in the list, you must use the indicies:
@@ -127,5 +128,3 @@ ascii_of_str = [ord(letter) for letter in str] # dope
 odds = [k for k in range(1, 11) if (k % 2) == 1]
 
 factors = [k for k in range(1, 101) if (100 % k == 0)]
-
-[variable_map]: images/1_23_17_img1.png "Variable Map"
