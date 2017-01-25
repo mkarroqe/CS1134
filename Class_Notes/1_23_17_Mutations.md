@@ -42,7 +42,8 @@ for idx in range(3):
 ![alt text][lists_map1]
 
 * Then, we append to the lists to demonstrate how they are affected in memory.
-
+  
+  1.
      ```python
      lst1.append(4) # lst2 is also affected when this happens
      ```
@@ -50,7 +51,8 @@ for idx in range(3):
      ![alt text][lists_map2]
 
      Since `lst1` and `lst2` are both pointing to the same `list` object, they are both mutated to `[1, 2, 3, 4]`.
-
+     
+  2.
      ```
      lst2.append(5) # lst1 is also affected when this happens
      ```
@@ -59,6 +61,7 @@ for idx in range(3):
 
      Like before, since `lst1` and `lst2` are both pointing to the same `list` object, they are both mutated to `[1, 2, 3, 4, 5]`.
 
+  3.
      ```
      lst3.append(6) # is independent
      ```
