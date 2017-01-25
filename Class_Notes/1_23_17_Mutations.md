@@ -122,4 +122,4 @@ odds = [k for k in range(1, 11) if (k % 2) == 1]
 
 factors = [k for k in range(1, 101) if (100 % k == 0)]
 
-[variable_map]: "Variable Map"
+[variable_map]: images/1_23_17_img1.png "Variable Map"
