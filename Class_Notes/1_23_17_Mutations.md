@@ -5,19 +5,25 @@
 ## Declaring Variables:
 When you declare a variable, for example, ```x = 4```, an int object is created of value 4.  The variable ```x``` then points to that int object.
 If you reassign the value of ```x``` to ```x = 3.5```, a float, a new float object is created and the variable ```x``` will then point to that instead.
-
 ![alt text][variable_map]
 
-    # Lists / Mutating Lists: MUTABLE DATA STRUCTURES
-    lst = [1, 2, 3]
-    for elem in lst:
+# Lists / Mutating Lists: MUTABLE DATA STRUCTURES
+   
+   ```python
+   lst = [1, 2, 3]
+   for elem in lst:
         elem += 10
+    ```
+The above list lst will not be mutated because elem is a copy of the actual element in the list.  Lists are mutable, but here, only the copy is being mutated.  New values are being changed.
 
-    # The above list lst will not be mutated because elem is a copy of the actual element in the list.  Lists are mutable, but here, only the copy is being mutated.  New values are being changed.
-
-    # To mutate the element in the list, you must use the indicies:
+To mutate the element in the list, you must use the indicies:
+    
+    ```python
     for idx in range(3):
         lst[idx] = lst[idx] + 10
+    ```
+
+This is another example:
 
     lst1 = [1, 2, 3] # lst1 is pointing to its own new object
     lst2 = lst1 # lst2 is pointing to the same object as lst1; same memory address
@@ -31,7 +37,7 @@ If you reassign the value of ```x``` to ```x = 3.5```, a float, a new float obje
     print("lst2:", lst2)
     print("lst3:", lst3)
     '''
-    # Strings / Mutating Strings: IMMUTABLE DATA STRUCTURES
+# Strings / Mutating Strings: IMMUTABLE DATA STRUCTURES
     s1 = "abc" # points to new string object
     s2 = s1 # points to the same memory address/string object as s1
     s1 = s1 + "d" # UNLIKE LISTS, STRINGS ARE IMMUTABLE.  This is creating a new string instance that contains the data "abcd".  Now, s1 and s2 no longer point to the same memory address.
