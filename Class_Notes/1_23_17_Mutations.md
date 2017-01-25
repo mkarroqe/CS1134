@@ -30,11 +30,13 @@ for idx in range(3):
 
 ##### Example:
 * First, we're creating three lists, `lst1`, `lst2`, and `lst3`, respectively.
-     ```python
+
+    ```python
      lst1 = [1, 2, 3] # lst1 is pointing to its own new object
      lst2 = lst1 # lst2 is pointing to the same object as lst1; same memory address
      lst3 = [1, 2, 3] # lst3 is pointing to its own new object
      ```
+     
      You can see in the diagram below how they are stored and referenced in memory:
 
 ![alt text][lists_map1]
