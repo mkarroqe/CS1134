@@ -31,7 +31,7 @@ for idx in range(3):
 ```
 Now, the actual elements in the list are being mutated.
 
-##### Example:
+### List Mutation Example:
 * First, we're creating three lists, `lst1`, `lst2`, and `lst3`, respectively.
 
     ```python
@@ -82,48 +82,58 @@ Now, the actual elements in the list are being mutated.
 
 
 ## Strings / Mutating Strings: IMMUTABLE DATA STRUCTURES
-    s1 = "abc" # points to new string object
-    s2 = s1 # points to the same memory address/string object as s1
-    s1 = s1 + "d" # UNLIKE LISTS, STRINGS ARE IMMUTABLE.  This is creating a new string instance that contains the data "abcd".  Now, s1 and s2 no longer point to the same memory address.
-    s2.upper() # creates new string "ABC" but it is not being assigned to anything; is not pointed anywhere.
-    '''
-    print("s1:", s1)
-    print("s2:", s2)
-    '''
-    # Example 1
-    lst1 = [1, 2, 3]
-    lst2 = lst1.copy() # Since it is a copy, a new list object is created.  HOWEVER, the data (elements) in the copy point to the original list it copied.
-    lst1[0] = 10 # This creates a new reference for the first element, 10, but the 1 does not disappear, and the value of the copy does not change.
-    '''
-    print("lst1:", lst1)
-    print("lst2:", lst2)
-    '''
-    # Example 2
-    lst1 = [[1, 2], 3, [4, 5]]
-    lst2 = lst1.copy() # even though this is a copy, BOTH lists are mutated. (See diagram)  The value the copy is pointing to is also mutated.
-    lst1[0][0] = 10
-    '''
-    print("lst1:", lst1)
-    print("lst2:", lst2)
-    '''
 
-    # Clearly, we have a problem with the copy() function (shallow copy) when we use it on more complex data structures.
-    # To make a deep copy:
-    import copy
-    lst1 = [[1, 2], 3, [4, 5]]
-    shallow_lst1 = copy.copy(lst1)
-    deep_lst1 = copy.deepcopy(lst1)
+```python
+s1 = "abc" # points to new string object
+s2 = s1 # points to the same memory address/string object as s1
+s1 = s1 + "d" # UNLIKE LISTS, STRINGS ARE IMMUTABLE.  This is creating a new string instance that contains the data "abcd".  Now, s1 and s2 no longer point to the same memory address.
+s2.upper() # creates new string "ABC" but it is not being assigned to anything; is not pointed anywhere.
 
-    shallow_lst1[0][0] = 10
-    deep_lst1[0][1] = 20
-    '''
-    print(shallow_lst1)
-    print(deep_lst1)
-    '''
-    # More reading: https://docs.python.org/2/library/copy.html
+print("s1:", s1)
+print("s2:", s2)
+```
+    
+## List Mutation: `copy()` v. `deepcopy()`:
 
+### Example 1:
+```python
+lst1 = [1, 2, 3]
+lst2 = lst1.copy() # Since it is a copy, a new list object is created.  HOWEVER, the data (elements) in the copy point to the original list it copied.
+lst1[0] = 10 # This creates a new reference for the first element, 10, but the 1 does not disappear, and the value of the copy does not change.
+
+print("lst1:", lst1)
+print("lst2:", lst2)
+```
+
+### Example 2:
+```python
+lst1 = [[1, 2], 3, [4, 5]]
+lst2 = lst1.copy() # even though this is a copy, BOTH lists are mutated. (See diagram)  The value the copy is pointing to is also mutated.
+lst1[0][0] = 10
+
+print("lst1:", lst1)
+print("lst2:", lst2)
+```
+
+Clearly, we have a problem with the copy() function (shallow copy) when we use it on more complex data structures.
+#### To make a deep copy:
+```python
+import copy
+lst1 = [[1, 2], 3, [4, 5]]
+shallow_lst1 = copy.copy(lst1)
+deep_lst1 = copy.deepcopy(lst1)
+
+shallow_lst1[0][0] = 10
+deep_lst1[0][1] = 20
+
+print(shallow_lst1)
+print(deep_lst1)
+
+# More reading: https://docs.python.org/2/library/copy.html
+```
 ## Mutating Lists and Copies Cont.
 
+```python
 def main():
     main_lst1 = [1, 2, 3]
     fun1(main_lst1)
@@ -149,13 +159,18 @@ def fun2(lst):
     # lst2 is mutated, but once lst is assigned to a new memory address, a new lst object, it stops being mutated
 
 # see diagrams
+```
 
 ## LIST COMPREHENSION SYNTAX
-```python [<expression> for <var> in <iterable-collection>] ```
+```python 
+[<expression> for <var> in <iterable-collection>] 
+```
+
+```python
 res = []
 for k in range(1, 11):
     res.append(k * k)
-'''print("res:", res)'''
+print("res:", res)
 
 # alt syntax of same thing:
 res = []
@@ -171,3 +186,4 @@ ascii_of_str = [ord(letter) for letter in str] # dope
 odds = [k for k in range(1, 11) if (k % 2) == 1]
 
 factors = [k for k in range(1, 101) if (100 % k == 0)]
+```
