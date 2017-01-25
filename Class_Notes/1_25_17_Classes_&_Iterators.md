@@ -1,7 +1,10 @@
-# Mary Karroqe
-# 1.25.17
-# Python Review: Classes
-
+# Classes and Iterators 
+*Introducing `yield`, `iter()`, and `next()`.*
+#### Lecture Date: 1.23.17
+---
+## Review of Classes
+#### Example:
+```python
 class Counter:
     def __init__(self, init_val = 0):
         self.val = init_val # constructor
@@ -13,8 +16,10 @@ c1 = Counter() # creating a Counter object
 c1.print_and_inc() # 0
 c2 = Counter()
 c2.print_and_inc() # own thing, see diagram
+```
+The above code instantiates a new class `Counter`.  The `__init__(self, init_val = 0)` function is the constructor; it creates the `Counter` object, setting the default value to 0.  The `print_and_inc(self)` function increments the object by 1.
 
-
+# TODO: edit the rest of this
 lst1 = [Counter()] * 5 # list of 5 Counter objects ? no see below
 lst2 = [Counter() for i in range(5)] # list of 5 Counter objects
 
