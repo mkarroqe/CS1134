@@ -19,25 +19,30 @@ c2.print_and_inc() # own thing, see diagram
 ```
 The above code instantiates a new class `Counter`.  The `__init__(self, init_val = 0)` function is the constructor; it creates the `Counter` object, setting the default value to 0.  The `print_and_inc(self)` function increments the object by 1.
 
-# TODO: edit the rest of this
+## List Comprehension
+First, we created 2 Counter objects (see above class).
+```python
 lst1 = [Counter()] * 5 # list of 5 Counter objects ? no see below
 lst2 = [Counter() for i in range(5)] # list of 5 Counter objects
+```
+When we loop through them and increment them, we get the following outputs:
 
-for c in lst1:
-    c.print_and_inc() # output: 0 1 2 3 4
+| code | output |
+| --- | --- |
+| `for c in lst1:` <br> &nbsp;&nbsp;&nbsp;&nbsp; `c.print_and_inc()` | `0 1 2 3 4` |
+| `for c in lst2:` <br> &nbsp;&nbsp;&nbsp;&nbsp; `c.print_and_inc()` | `0 0 0 0 0` |
 
-if __name__ == '__main__':
-    for c in lst2:
-        c.print_and_inc() # output: 0 0 0 0 0
+### <u> Explanation: </u> <!-- I know its deprecated fight me about it -->
+#### `lst1`:
+(See picture 2)
+lst1 is a list of length 5;
+we are creating one object, and all elements are pointing to that same object
+therefore, when we call print_and_inc, they are all changing the same counter
 
-    # That's wack af
-    # See picture 2:
-        # lst1 is a list of length 5;
-        # we are creating one object, and all elements are pointing to that same object
-        # therefore, when we call print_and_inc, they are all changing the same counter
-    # See picture 2:
-        # in lst2, we are creating 5 different counter objects
-        # therefore, when we call print_and_inc, we are affecting different objects each time, getting 0
+#### `lst2`:
+(See picture 2)
+in lst2, we are creating 5 different counter objects
+therefore, when we call print_and_inc, we are affecting different objects each time, getting 0
 
 # ----------------------------
 
