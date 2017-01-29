@@ -1,4 +1,5 @@
-# Python Review: Mutations 
+# Python Review: Mutations
+*Review of where and how data is stored in memory.*
 #### Lecture Date: 1.23.17
 ---
 [variable_map]: images/1_23_17_img1.png "Variable Map"
