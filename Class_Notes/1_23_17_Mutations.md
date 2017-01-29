@@ -7,6 +7,8 @@
 [lists_map2]: images/1_23_17_img3.png "Lists Map 2"
 [lists_map3]: images/1_23_17_img4.png "Lists Map 3"
 [lists_map4]: images/1_23_17_img5.png "Lists Map 4"
+[string_mut1]: images/1_23_17_img6.png "String Mutation 1"
+[string_mut2]: images/1_23_17_img7.png "String Mutation 2"
 
 ## Declaring Variables:
 When you declare a variable, for example, ```x = 4```, an int object is created of value 4.  The variable ```x``` then points to that int object.
@@ -85,26 +87,40 @@ Now, the actual elements in the list are being mutated.
 ## Strings / Mutating Strings: IMMUTABLE DATA STRUCTURES
 
 ```python
-s1 = "abc" # points to new string object
-s2 = s1 # points to the same memory address/string object as s1
-s1 = s1 + "d" # UNLIKE LISTS, STRINGS ARE IMMUTABLE.  This is creating a new string instance that contains the data "abcd".  Now, s1 and s2 no longer point to the same memory address.
-s2.upper() # creates new string "ABC" but it is not being assigned to anything; is not pointed anywhere.
-
-print("s1:", s1)
-print("s2:", s2)
+s1 = "abc"
+s2 = s1
 ```
+As shown in the diagram below, when `s1` is created, it points to a new string object.  `s2` points to the same memory address/string object as `s1`.
+
+![alt text][string_mut1]
+
+```python
+s1 = s1 + "d" 
+s2.upper() 
+```
+Unlike lists, **strings are immuatable**.  In the first line, a new string instance is created containing the data "abcd".  Now, `s1` and `s2` no longer point to the same memory address.  The second line of code creates a new string "ABC" but since it is not assigned to anything, it is not pointed anywhere and is lost in the void.
+
+![alt text][string_mut2]
+
+Code | Output
+--- | ---
+`print("s1:", s1)` | `s1: abc`
+`print("s2:", s2)` | `s1: abcd`
     
 ## List Mutation: `copy()` v. `deepcopy()`:
 
 ### Example 1:
 ```python
 lst1 = [1, 2, 3]
-lst2 = lst1.copy() # Since it is a copy, a new list object is created.  HOWEVER, the data (elements) in the copy point to the original list it copied.
-lst1[0] = 10 # This creates a new reference for the first element, 10, but the 1 does not disappear, and the value of the copy does not change.
-
-print("lst1:", lst1)
-print("lst2:", lst2)
+lst2 = lst1.copy() 
 ```
+
+Since it is a copy, a new list object is created.  HOWEVER, the data (elements) in the copy point to the original list it copied.
+
+```python
+lst1[0] = 10
+```
+This creates a new reference for the first element, 10, but the 1 does not disappear, and the value of the copy does not change.
 
 ### Example 2:
 ```python
@@ -120,6 +136,7 @@ Clearly, we have a problem with the copy() function (shallow copy) when we use i
 #### To make a deep copy:
 ```python
 import copy
+
 lst1 = [[1, 2], 3, [4, 5]]
 shallow_lst1 = copy.copy(lst1)
 deep_lst1 = copy.deepcopy(lst1)
