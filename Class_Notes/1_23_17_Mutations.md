@@ -9,12 +9,13 @@
 [lists_map4]: images/1_23_17_img5.png "Lists Map 4"
 [string_mut1]: images/1_23_17_img6.png "String Mutation 1"
 [string_mut2]: images/1_23_17_img7.png "String Mutation 2"
+[string_mut3]: images/1_23_17_img8.png "String Mutation 3"
 
 ## Declaring Variables:
 When you declare a variable, for example, ```x = 4```, an int object is created of value 4.  The variable ```x``` then points to that int object.
 If you reassign the value of ```x``` to ```x = 3.5```, a float, a new float object is created and the variable ```x``` will then point to that instead.
 
-![alt text][variable_map]
+![][variable_map]
 
 ## Lists / Mutating Lists: MUTABLE DATA STRUCTURES   
 Will the following code mutate `lst`?
@@ -45,7 +46,7 @@ Now, the actual elements in the list are being mutated.
      
      You can see in the diagram below how they are stored and referenced in memory:
 
-![alt text][lists_map1]
+![][lists_map1]
 
 * Then, we append to the lists to demonstrate how they are affected in memory.
   
@@ -54,7 +55,7 @@ Now, the actual elements in the list are being mutated.
      lst1.append(4) # lst2 is also affected when this happens
      ```
      
-     ![alt text][lists_map2]
+     ![][lists_map2]
 
      Since `lst1` and `lst2` are both pointing to the same `list` object, they are both mutated to `[1, 2, 3, 4]`.
      
@@ -63,7 +64,7 @@ Now, the actual elements in the list are being mutated.
      lst2.append(5) # lst1 is also affected when this happens
      ```
      
-     ![alt text][lists_map3]
+     ![][lists_map3]
 
      Like before, since `lst1` and `lst2` are both pointing to the same `list` object, they are both mutated to `[1, 2, 3, 4, 5]`.
 
@@ -71,7 +72,7 @@ Now, the actual elements in the list are being mutated.
      ```
      lst3.append(6) # is independent
      ```
-     ![alt text][lists_map4]
+     ![][lists_map4]
      
      Since `lst3` is pointing to its own independent `list` object, when we append to it, it is the only list affected.
 
@@ -85,23 +86,30 @@ Now, the actual elements in the list are being mutated.
 
 
 ## Strings / Mutating Strings: IMMUTABLE DATA STRUCTURES
-In the code below, we are creating two strings.
-```python
-s1 = "abc"
-s2 = s1
-```
-As shown in the diagram below, when `s1` is created, it points to a new string object.  `s2` points to the same memory address/string object as `s1`.
+* In the code below, we are creating two strings.
+     ```python
+     s1 = "abc"
+     s2 = s1
+     ```
+     As shown in the diagram below, when `s1` is created, it points to a new string object.  `s2` points to the same memory address/string object as `s1`.
 
-![alt text][string_mut1]
+     ![][string_mut1]
 
-Here, we are creating new strings from the old ones; we are NOT mutating the strings.
-```python
-s1 = s1 + "d" 
-s2.upper() 
-```
-Unlike lists, **strings are immuatable**.  In the first line, a new string instance is created containing the data "abcd".  Now, `s1` and `s2` no longer point to the same memory address.  The second line of code creates a new string "ABC" but since it is not assigned to anything, it is not pointed anywhere and is lost in the void.
+* With the following code, we are creating new strings from the old ones; we are NOT mutating the strings.
+     ```python
+     s1 = s1 + "d" 
+     ```
+     ![][string_mut2]
+     
+     Unlike lists, **strings are immuatable**.  Above, a new string instance is created containing the data "abcd".  Now, `s1` and `s2` no longer point to the same memory address.
 
-![alt text][string_mut2]
+* Here, the `upper()` function is called on `s2`.
+     ```python
+     s2.upper() 
+     ```
+     A new string "ABC" is created, but since it is not assigned to anything, nothing is pointing to it and it is lost in the void.  RIP.
+
+     ![][string_mut3]
 
 Code | Output
 --- | ---
