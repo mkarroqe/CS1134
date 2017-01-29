@@ -85,7 +85,7 @@ Now, the actual elements in the list are being mutated.
 
 
 ## Strings / Mutating Strings: IMMUTABLE DATA STRUCTURES
-
+In the code below, we are creating two strings.
 ```python
 s1 = "abc"
 s2 = s1
@@ -94,6 +94,7 @@ As shown in the diagram below, when `s1` is created, it points to a new string o
 
 ![alt text][string_mut1]
 
+Here, we are creating new strings from the old ones; we are NOT mutating the strings.
 ```python
 s1 = s1 + "d" 
 s2.upper() 
