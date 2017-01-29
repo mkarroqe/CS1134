@@ -110,6 +110,8 @@ Now, the actual elements in the list are being mutated.
      A new string "ABC" is created, but since it is not assigned to anything, nothing is pointing to it and it is lost in the void.  RIP.
 
      ![][string_mut3]
+     
+Final outputs after all these shenanigans:
 
 Code | Output
 --- | ---
