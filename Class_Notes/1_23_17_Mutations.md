@@ -11,6 +11,20 @@
 [string_mut2]: images/1_23_17_img7.png "String Mutation 2"
 [string_mut3]: images/1_23_17_img8.png "String Mutation 3"
 
+## Contents:
+* Declaring Variables
+* Lists / Mutating Lists: MUTABLE DATA STRUCTURES
+  * List Mutation Example
+* Strings / Mutating Strings: IMMUTABLE DATA STRUCTURES
+* List Mutation: `copy()` v. `deepcopy()`
+  * Example 1
+  * Example 2
+  * How to Make a Deep Copy
+* Mutating Lists and Copies Cont.
+* List Comprehension Syntax
+  
+---
+
 ## Declaring Variables:
 When you declare a variable, for example, ```x = 4```, an int object is created of value 4.  The variable ```x``` then points to that int object.
 If you reassign the value of ```x``` to ```x = 3.5```, a float, a new float object is created and the variable ```x``` will then point to that instead.
