@@ -10,6 +10,8 @@
 [string_mut1]: images/1_23_17_img6.png "String Mutation 1"
 [string_mut2]: images/1_23_17_img7.png "String Mutation 2"
 [string_mut3]: images/1_23_17_img8.png "String Mutation 3"
+[shallow_copy]: images/1_23_17_img9.png "Shallow Copy"
+
 
 ## Contents:
 * Declaring Variables
@@ -135,12 +137,22 @@ Code | Output
 ## List Mutation: `copy()` v. `deepcopy()`:
 
 ### Example 1:
+Here, `lst1` is instansiated with the values `[1, 2, 3]`.  Then, a **shallow copy** of `lst1` is assigned to `lst2`.
+
 ```python
 lst1 = [1, 2, 3]
 lst2 = lst1.copy() 
 ```
-
 Since it is a copy, a new list object is created.  HOWEVER, the data (elements) in the copy point to the original list it copied.
+
+![][shallow_copy]
+
+If we call `lst1` and `lst2` in the console after typing the above code, we get the following output:
+
+Code | Output
+--- | ---
+`lst1` | `[1, 2, 3]` (actual values)
+`lst2` | `<built-in method copy of list object at 0x10298d888>` (memory address)
 
 ```python
 lst1[0] = 10
