@@ -1,4 +1,4 @@
-# Classes and Iterators 
+# Classes, Iterators, and List Comprehension 
 *Introducing `yield`, `iter()`, and `next()`.*
 #### Lecture Date: 1.23.17
 ---
