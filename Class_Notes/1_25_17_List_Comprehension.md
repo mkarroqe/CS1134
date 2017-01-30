@@ -44,8 +44,8 @@ therefore, when we call print_and_inc, they are all changing the same counter
 in lst2, we are creating 5 different counter objects
 therefore, when we call print_and_inc, we are affecting different objects each time, getting 0
 
-# ----------------------------
-
+===
+```python
 def square_lst(lst):
     res = []
     for elem in lst:
@@ -57,18 +57,20 @@ def inc_lst(lst):
     for elem in lst:
         res.append(elem + 1)
     return res
+```
+How can we generalize the above 2 functions into one?  They both have the same algorithmic template.
+By passing a function as a parameter! (Is a function considered a datatype then?) no, but they are objects with their own type
 
-# how can we generalize the above 2 functions into one?  They both have the same algorithmic template.
-# by passing a function as a parameter! (Is a function considered a datatype then?) no, but they are objects with their own type
-
+```python
 def map_list(lst, func): # High Order Function: a function that takes another function as an argument
     res = []
     for elem in lst:
         res.append(func(elem))
     return res
 # ha! cool
-
-# so now, we can call square_lst() as:
+```
+So now, we can call square_lst() as:
+```python
 def square(x):
     return x * x
 
@@ -85,10 +87,11 @@ def inc_lst(lst):
 # that's it! d o p e
 # consider the appications with a long af algorithm
 # "functions are also a form in which we can generalize our ideas."
+```
+===
 
-# ----------------------------
-
-# something something for loops
+### something something for loops
+```python
 for var in iterable:
   # examples of iterable collections: lst, str, dict, range, etc
   # iterable object: an object that produces an iterator by calling the iter() function
@@ -101,15 +104,16 @@ s = 'abc'
 s_iterator = iter(s)
 r = range(4)
 r_iterator = iter(r)
+```
+#### iterator object: 
+* an object that iterates over a series of values by making subsequent calls to the next() function.
+* After ending the sequence, a call to `next()` would raise a `StopIteration` exception
 
-# so wtf is an iterator?
-# iterator object: an object that iterates over a series of values by making subsequent calls to the next() function.
-# After ending the sequence, a call to next() would raise a StopIteration exception
+#### `next()` function:
+`next(lst_iterator)`
+* self explanatory; gets the next element in a function
 
-# well wtf is the next() function?
-next(lst_iterator)
-# self explanatory; gets the next element in a function
-
+```python
 for item in range(4):
     print(item)
 
@@ -124,22 +128,23 @@ while(end == False):
         print(item)
     except StopIteration:
         end = True
+```
+===
 
-# ----------------------------
+### built in iterable objects:
+* range()
+  * this is different that list/string
+  * has to take in data
+  * list and string are objects that store them constantly inside memory;
+  * this is not the case with range!
+    * a range(4) does not store 4 integers stored in memory, unlike a list or string.
+      * think of application in a range of 1000000!
+    * range is more effective in storage
+      * it's an implicit series of values; they are created as we proceed
+    * list, string
 
-# built in iterable objects:
-    # range()
-        # this is different that list/string
-        # has to take in data
-        # list and string are objects that store them constantly inside memory;
-        # this is not the case with range!
-            # a range(4) does not store 4 integers stored in memory, unlike a list or string.
-                # think of application in a range of 1000000!
-            # range is more effective in storage
-            # it's an implicit series of values; they are created as we proceed
-    # list, string
-
-# example of how range does its thang
+#### example of how range does its thang
+```python
 def f():
     x = 1
     yield x # sort of like return but not really
@@ -200,3 +205,4 @@ def factors(num):
 
 for item in factors(100):
     print(item)
+```
