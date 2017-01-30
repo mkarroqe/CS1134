@@ -184,11 +184,11 @@ lst1[0][0] = 10
 ```
 Even though it is a copy, `lst2` is also mutated.  The value the copy is pointing to is also mutated. See the diagram below:
 
-![][shallow_copy3]
+![][shallow_copy4]
 
 Clearly, we have a problem with the copy() function (shallow copy) when we use it on more complex data structures.
 
-#### To make a deep copy:
+### To make a deep copy: (where copies are independent of the original)
 ```python
 import copy
 
@@ -230,14 +230,13 @@ def fun2(lst):
     print("lst =", lst)
 
     # lst2 is mutated, but once lst is assigned to a new memory address, a new lst object, it stops being mutated
-
-# see diagrams
 ```
 
 ## LIST COMPREHENSION SYNTAX
 ```python 
 [<expression> for <var> in <iterable-collection>] 
 ```
+See Lab1 folder for more detailed descriptions (TODO)
 
 ```python
 res = []
