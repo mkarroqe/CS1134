@@ -150,9 +150,10 @@ On a standard measure for running time of algorithms:
                 * 5n + 8 <= 6n
          * ha i'm confused read the textbook sleepy self
         
-    * Big Theta
+    * Big Omega
       * red textbook to get definition
-      * 
+      * log base 2 always in this class apparently
+    * Big Theta 
 
 
 
