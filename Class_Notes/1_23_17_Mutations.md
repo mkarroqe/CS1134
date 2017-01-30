@@ -12,6 +12,8 @@
 [string_mut3]: images/1_23_17_img8.png "String Mutation 3"
 [shallow_copy1]: images/1_23_17_img9.png "Shallow Copy 1"
 [shallow_copy2]: images/1_23_17_img10.png "Shallow Copy 2"
+[shallow_copy3]: images/1_23_17_img11.png "Shallow Copy 3"
+[shallow_copy4]: images/1_23_17_img12.png "Shallow Copy 4"
 
 ## Contents:
 * Declaring Variables
@@ -168,16 +170,24 @@ Code | Output
  `lst1` | `[10, 2, 3]`
 
 ### Example 2:
+This time, we instantiate `lst1` as a list of length 3, with two inner lists as elements in the main outer list, and `lst2`, a shallow copy. 
 ```python
 lst1 = [[1, 2], 3, [4, 5]]
-lst2 = lst1.copy() # even though this is a copy, BOTH lists are mutated. (See diagram)  The value the copy is pointing to is also mutated.
-lst1[0][0] = 10
-
-print("lst1:", lst1)
-print("lst2:", lst2)
+lst2 = lst1.copy() 
 ```
+Here is how everything is stored and referenced to in memory:
+
+![][shallow_copy3]
+
+```python
+lst1[0][0] = 10
+```
+Even though it is a copy, `lst2` is also mutated.  The value the copy is pointing to is also mutated. See the diagram below:
+
+![][shallow_copy3]
 
 Clearly, we have a problem with the copy() function (shallow copy) when we use it on more complex data structures.
+
 #### To make a deep copy:
 ```python
 import copy
