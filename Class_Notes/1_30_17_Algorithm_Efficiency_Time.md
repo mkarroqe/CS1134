@@ -96,36 +96,49 @@ On a standard measure for running time of algorithms:
       * assignment of variables, etc
     * Informal running time criteria:
       * We compare the number of primitive operations the algorithms excecute as a function of the input size.
+      * We compare the *order of growth* of primitive operations ...
+        * order of growth:
+          * `T(n) = 3n^2 + 6n - 15 = bigtheta(n^2)
+            * you can ignore second part of equation (lower order terms: 6n-15) and the constant (3)
+            * so w this, 
+              * `T1 = bigtheta(n)`
+              * `T2 = bigtheta(n)` o shit
+              * `T3 = bigtheta(sqrt(n))` so this algorithm is superior
+        * asymptotic growth is how we evaluate our algorithms now
       
-* Testing:
-  1. `is_prime1(num)`
-    1. variable assignment
-    calling next
-    assigning to curr
-    (TODO: properly count these)
-    
-    `T1(n) = 1 + 1 + (5 * n) + 2 = 5n + 4`
-    
-  2. `is_prime2(num)`
-    1. initializing var
-    2. for loop 
-     1 for initial iter
-      calling next
-      assigning curr
-      ... somehow he counted 5
+      * Testing:
+        1. `is_prime1(num)`
+          1. variable assignment
+          calling next
+          assigning to curr
+          (TODO: properly count these)
+
+          `T1(n) = 1 + 1 + (5 * n) + 2 = 5n + 4`
+
+        2. `is_prime2(num)`
+          1. initializing var
+          2. for loop 
+           1 for initial iter
+            calling next
+            assigning curr
+            ... somehow he counted 5
+
+          `T2(n) = 1 + 1 + (5 * n/2) + 2 = 2.5n + 4`
+
+        3. `is_prime3(num)`
+          1. init var
+          2. two at the end
+          3. in loop: same 5 operations sqrt(n) times
+
+          `T3(n) = 1 + 1 + 5sqrt(n) + 4`
+
+      So which one is most efficient now? It depends on the input.  For values 1, 2, 3, `T2` is best, but after, `T3` is best.
       
-    `T2(n) = 1 + 1 + (5 * n/2) + 2 = 2.5n + 4`
-  
-  3. `is_prime3(num)`
-    1. init var
-    2. two at the end
-    3. in loop: same 5 operations sqrt(n) times
-    
-    `T3(n) = 1 + 1 + 5sqrt(n) + 4`
-    
-So which one is most efficient now? It depends on the input.  For values 1, 2, 3, `T2` is best, but after, `T3` is best.
-
-
+  3. The running time depends on the hardware environment.
+    * We make asymptotic analysis looking at the order of growth.
+    * Big O
+      * 
+    * Big Theta
 
 
 
