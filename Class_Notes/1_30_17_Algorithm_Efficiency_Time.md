@@ -3,6 +3,8 @@
 #### Lecture Date: 1.30.17
 ---
 ## Primality Testing
+Testing if numbers are prime.
+
 ### Definitions:
 1. Let `num>=2` be an integer.  We say that `num` is prime if its only divisors are 1 and `num`.
   * 13 is prime
@@ -76,3 +78,66 @@
       else:
           return False
   ```
+### Regarding Efficiency in Runtime:
+It seems like `is_prime3` > `is_prime2` > `is_prime1`, denoted by the constants `T3`, `T2`, and `T1`, respectively.
+But the professor is implying that he's about to disprove that soon.
+
+## Testing Runtime
+On a standard measure for running time of algorithms:
+* Observations:
+  1. The running time depends on the input.
+    * Runtime values are not constant values; their values depend on the `num` passed into the function.
+    * We parameterize the running time by the size of the input.
+      * `T1(n)`, `T2(n)`, `T3(n)`
+  2. The running time depends on the operations we use and the type we apply them on.
+    * `int`s are faster than `float`s
+    * We count all primitive operations as 1.
+      * addition, subtraction, etc
+      * assignment of variables, etc
+    * Informal running time criteria:
+      * We compare the number of primitive operations the algorithms excecute as a function of the input size.
+      
+* Testing:
+  1. `is_prime1(num)`
+    1. variable assignment
+    calling next
+    assigning to curr
+    (TODO: properly count these)
+    
+    `T1(n) = 1 + 1 + (5 * n) + 2 = 5n + 4`
+    
+  2. `is_prime2(num)`
+    1. initializing var
+    2. for loop 
+     1 for initial iter
+      calling next
+      assigning curr
+      ... somehow he counted 5
+      
+    `T2(n) = 1 + 1 + (5 * n/2) + 2 = 2.5n + 4`
+  
+  3. `is_prime3(num)`
+    1. init var
+    2. two at the end
+    3. in loop: same 5 operations sqrt(n) times
+    
+    `T3(n) = 1 + 1 + 5sqrt(n) + 4`
+    
+So which one is most efficient now? It depends on the input.  For values 1, 2, 3, `T2` is best, but after, `T3` is best.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
