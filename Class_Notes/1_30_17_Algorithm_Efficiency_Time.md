@@ -1,5 +1,4 @@
 # Algorithm Efficiency: Time
-*Topic*
 #### Lecture Date: 1.30.17
 ---
 ## Primality Testing
@@ -137,8 +136,23 @@ On a standard measure for running time of algorithms:
   3. The running time depends on the hardware environment.
     * We make asymptotic analysis looking at the order of growth.
     * Big O
-      * 
+      * TODO: read that textbook
+      * Notes:
+        1. big O tries to express an order between functions.  WHen we say `f(n) = O(g(n))`, we mean that `f <= g`. (starting at a specific point, not always, but from that specific point it's good enough, Ex: T2 v T3).  Therefore represents an upper bound.
+          * an example
+            * Show that `5n+8 = O(n)`
+            * Proof:
+              * Show that there exists are real constant `c`, `n0`, then we can show something with them
+              * Let `c` = __6___-
+              * Let `n0` = __8____`
+              * and we get that for all `n >= n0`:
+                * `n >= 8` /+5n
+                * 5n + 8 <= 6n
+         * ha i'm confused read the textbook sleepy self
+        
     * Big Theta
+      * red textbook to get definition
+      * 
 
 
 
