@@ -1,5 +1,5 @@
 # Algorithm Efficiency: Time
-* Topic *
+*Topic*
 #### Lecture Date: 1.30.17
 ---
 ## Primality Testing
@@ -12,10 +12,11 @@
   * so are 5 and 20
   
 ### Implementation:
-1. Version 1:
+1. Version 1: iterating over the entire range to look for all divisors and track them in a counter.  If there are only 2, it is prime by definition.  If there are more, then it is not.
   * ```python
   def is_prime1(num):
       count_divs = 0
+      
       for curr in range(1, num + 1):
           if(num % curr == 0):
               count_divs += 1
@@ -24,5 +25,30 @@
           return True # if we have two divisors, it's prime
       else:
           return False
-   ```
+      ``````
+2. Version 2: iterating over first half of the range to be more efficient; show that there are no divisors in the second half to show it is prime
+  
+  (TODO: fix sloppy proof)
+  
+  Let `k` be a divisor of `num` in the second half of the range.  That is, `k > num/2`.
+  Let `d` be `k`'s complementary divisor, therefore `d = num/k`.
+  
+  Let's compare:
+  `d = num/k` **<** `num/(num/2)` = `num/1 * 2/num = 2`
+  
+  Therefore `d < 2` Which means that it only can be equal to 1.
+
+  ```python
+  def is_prime2(num):
+      count_divs = 0
+      
+      for curr in range(1, num // 2 + 1): # range cannot accept floats
+          if(num % curr == 0):
+              count_divs += 1
+      
+      if(count_divs == 1): # since we're onlt going over the first half of the range, we only need to find one divisor for it to be prime.
+          return True
+      else:
+          return False
+  ```
   
