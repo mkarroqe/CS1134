@@ -107,7 +107,7 @@ def binary_search(srt_list, val):
      right = len(srt_lst) - 1
      found = False
      
-     while(found == False):
+     while(found == False and left <= right):
           mid = (left + right) // 2 # floored average
           if srt_list[mid] == val):
                found = True
@@ -118,7 +118,19 @@ def binary_search(srt_list, val):
                left = mid + 1
                
      return ind
-     
+```
+So this algorithm is lit because no matter what the input, we will always have the same number of iterations (?) something like that
+
+iteration number | size of searching range
+-|-
+1|n/1 = 2^0
+2|n/2 = 2^1
+3|n/4 = 2^2
+4|n/8 = 2^3
+...|...
+k|n/2^k-1
+...|...
+?|1
      
      
      
