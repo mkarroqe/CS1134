@@ -23,5 +23,76 @@ II) Since n >= 3 ==> 6n >= 18 >= 15 ==> 6n >= 15 ==> 6n-15 >= 0
 III) All together we get that for n >= 3:
      3n^2 <= 3n^2 + 6n - 15 <= 9n^2
                    
-"I'm supposed to look for two multiplicand of g that bind f from below and above"
+("I'm supposed to look for two multiplicand of g that bind f from below and above")
 ===
+#### Example
+Let's figure out the running time of this function as a function of n (T1(n)):
+
+```python
+def print_square(n):
+     for i in range(n):
+          line = '*' * n
+          print(line)
+```
+First, *what does it do?* It prints a square of `*` of length and width `n`.
+Second, *what's the running time of the entire loop execution?* Let's start from the inside and out.
+     First, the cost of what's inside the for loop
+          
+          ```python
+               line = '*' * n
+               print(line)
+          ``````
+          The first line here won't be a primitive operation; no matter what the input is, it'll take the same about of time
+          This line is *linear* of `n`, so it would cost **theta(n)**
+          
+     Then, we move on to the for loop, which is theta(n^2)
+     So it's theta(n^2).  Wack.  I will consult the textbook later
+     
+#### Example
+```python
+def print_triangle(n):
+     for i in range(1, n + 1):
+          line = '*' * i
+          print(line)
+```
+**_What's the asymptotic order of the above function?_**    
+
+We need to figure out the cost of the for loop, but in order to do that we need to find out how much we pay for each body and then sum it for all the different iterations.
+
+You'll see that here, the body varies from iteration to iteraiton.  In this case, it kind of matters the value of i.  the cost of the line line costs theta(i).  It's O(n), it's not more than n (?) so the inner chunk inside the for loop is theta(i).
+
+     And actually it makes sense because i is a variable that has influence over this body so the excecution the cost the runtime of this body can be dependent on i
+
+Ok, so now let's figure out the cost of the for loop.  When you find the cost of a for loop, think of it as a *summation*, not as a multiplicaiton.  A lot of times we want to add stuff we're executing.  We need to add the accurate about of each iteration.
+
+In this case, we would need to add 1 + 2 + 3 + ... + n.  Only the last one would actually cost us n.
+We have some formula (n(n+1))/2 = (1/2)n^2+(1/2)n = theta(n^2)
+
+You can prove it by definition.  Neat.  Again, I will be consulting the textbook to fix and explain.  Much love to all 0 people following this repo <33
+
+**Look at diagram!! The triangle is half the number of stars as the square function is (nice visual!!!!!)**
+
+===
+
+#### Example
+
+```python
+# search function that will return the index of the value `val` inside `lst`.  If it does not exist, we return `None`.
+def linear_search(lst, val):
+     for i in range(len(lst):
+          if lst[i] == val:
+               return i
+     return None
+```
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+          
