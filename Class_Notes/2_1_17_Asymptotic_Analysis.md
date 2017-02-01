@@ -41,9 +41,9 @@ Second, *what's the running time of the entire loop execution?* Let's start from
           ```python
                line = '*' * n
                print(line)
-          ``````
-          The first line here won't be a primitive operation; no matter what the input is, it'll take the same about of time
-          This line is *linear* of `n`, so it would cost **theta(n)**
+          ```
+     The first line here won't be a primitive operation; no matter what the input is, it'll take the same about of time
+     This line is *linear* of `n`, so it would cost **theta(n)**
           
      Then, we move on to the for loop, which is theta(n^2)
      So it's theta(n^2).  Wack.  I will consult the textbook later
@@ -84,6 +84,21 @@ def linear_search(lst, val):
                return i
      return None
 ```
+
+Now we analyze the run time of this function as a function of the input size.  In the case of a list, the input size is obviously the length of the list.  In this case, T(n), n is the length of lst. 
+
+Now, how long it will take this to excecute totally depends on what you pick; it could take one iteration but it could also take iterating through the entire list.  So, we take the worst case scenario.
+
+* We compare the asymptotic order of the number of primitive operations excecuted by a process as a function of its input size in its worst case run.
+
+So now we do this evaluation:
+The function has two parts: the for loop and the return.  The return is worth theta(1) so the for loop is dominant.  The for loop is a constant execution of the body (remember its a summation).  The if statement is theta(1) and the for loop is theta(n).
+
+That is why it is called a linear function, because yeah. textbook
+
+===
+
+
      
      
      
