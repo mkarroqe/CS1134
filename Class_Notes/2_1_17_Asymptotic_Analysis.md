@@ -103,6 +103,22 @@ Here, we are searching a sorted list.  How can we make this a better algorithm? 
 ```python
 # this time, we are searching a sorted list.
 def binary_search(srt_list, val):
+     left = 0
+     right = len(srt_lst) - 1
+     found = False
+     
+     while(found == False):
+          mid = (left + right) // 2 # floored average
+          if srt_list[mid] == val):
+               found = True
+               ind = mid
+          elif val < srt_lst[mid]:
+               right = mid - 1
+          else: # val > srt_lst[mid]:
+               left = mid + 1
+               
+     return ind
+     
      
      
      
