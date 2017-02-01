@@ -98,7 +98,11 @@ That is why it is called a linear function, because yeah. textbook
 
 ===
 
+Here, we are searching a sorted list.  How can we make this a better algorithm?  Again, think of the worst case.  Binary search is a good alternatibe algorithm!  Will it make a difference asymptotic wise, though?
 
+```python
+# this time, we are searching a sorted list.
+def binary_search(srt_list, val):
      
      
      
