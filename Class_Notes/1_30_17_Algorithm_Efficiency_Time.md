@@ -1,6 +1,33 @@
 # Algorithm Efficiency: Time
 #### Lecture Date: 1.30.17
 ---
+## Analyzing Algorithms
+Are they speedy and good?  We have a few ways of measuring them.
+
+### Experimental Analysis
+Test some inputs, time them, and hope for the best.  It has some flaws:
+* Difficult to compare two algorithms if they're run on different hardware and software systems; different hardware and software can affect the speed, all else being equal.
+* Can only test a limited amount of inputs; leaving out inputs can drastically affect runtime.
+* An algorithm must be fully implemented to study it experimentally.
+  * This can take up a lot of time; why bother when we have better ways of analyzing algorithms?
+  
+### Primitive Operations
+Primitive operations are used to calculate algorithm efficiency.  *A primitive operation is a low level instruction with an execution time that is constant*. (txtb)
+
+**Examples of Primitive Operations:**
+* assigning identifiers
+  * `num = 3`
+* comparing two numbers
+  * `if (num1 < num2):`
+* performing an arithmetic operation
+  * `num % 2`
+* accessing a single element of a `list` by index
+  * `lst[i]`
+* calling a function (w/o excecuting the inside)
+  * `func_call()`
+* returning from a function
+  * `return num`
+
 ## Primality Testing
 Testing if numbers are prime.
 
